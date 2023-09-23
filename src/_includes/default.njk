@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/output.css">
+        <link rel="stylesheet" href="/assets/slick/slick.css">
+        <title>
+            {% if title %}{{ title }} - {% endif %}Your Site Name</title>
+        <!-- Add any other <head> elements like stylesheets, favicon, etc. -->
+    </head>
+    <body data-page="{% if nav %}{{nav}}{% else %}{{ title |lower }}{% endif %}">
+        {% include 'partials/nav.njk'%}
+        {{content | safe}}
+
+        {% include 'partials/footer.njk'%}
+
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="/assets/slick/slick.min.js"></script>
+        <script src="/assets/js/script.js"></script>
+
+        <script>
+            // Slick Slider for #contents-slider, 1 slide to show but show half of the next slide
+            $('#contents-slider').slick({
+                slidesToShow: 2,
+                variableWidth: true,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 500,
+                prevArrow: '<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06L9.06 10l4.72 4.72a.75.75 0 11-1.06 1.06l-5.25-5.25a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd"/></svg></button>',
+                nextArrow: '<button type="button" class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8"><path fill-rule="evenodd" d="M6.22 15.78a.75.75 0 010-1.06L10.94 10 6.22 5.28a.75.75 0 111.06-1.06l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 01-1.06 0z" clip-rule="evenodd"/></svg></button>',
+                cssEase: 'linear'
+            });
+        </script>
+        <script>
+            //interaction for #talentsFilter
+            $('#talentsFilter .tab').click(function(){
+                $('#talentsFilter .tab').removeClass('tab-active');
+                $(this).addClass('tab-active');
+                var filter = $(this).data('filter');
+                if(filter == 'all'){
+                    $('#talent-list .talent').fadeIn(200);
+                }else{
+                    $('#talent-list .talent').hide();
+                    $('#talent-list .talent[data-tags*="'+filter+'"]').fadeIn(200);
+                }
+            });
+        </script>
+    </body>
+</html>

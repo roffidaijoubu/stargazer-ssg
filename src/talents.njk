@@ -1,0 +1,34 @@
+---
+layout: default.njk
+title: Talents
+nav: talents
+---
+<main class="bg-glow py-8">
+    <div class="container mx-auto">
+        <h1 class="py-16 text-h1 text-center">
+                    Talents
+                </h1>
+        <div id="talentsFilter" class="hidden md:flex tabs tabs-pill w-fit mx-auto justify-center mb-8 ">
+            <a data-filter="all" class="tab tab-active">All</a>
+            {% for tag in tags %}
+                {% if tag.tag_member.arrayValue %}
+                    <a data-filter="{{tag.tag_slug.stringValue}}" class="tab">{{tag.tag_name.stringValue}}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="talent-list" class="flex flex-wrap justify-center w-full gap-12 max-w-[1024px] md:mx-auto md:mb-[101px]">
+            {% for talent in talents %}
+                <a href="/talent-detail.html" class="talent flex flex-col items-center pb-3 w-[120px] md:w-[160px]" data-tags="
+            {% for tag in talent.talent_tags.arrayValue.values %}
+                {{tag.referenceValue}}
+            {% endfor %}
+            ">
+                    <img src="" alt="" class="talent__img h-[120px] md:h-[160px] w-[120px] md:w-[160px] rounded-full shadow-lg bg-slate-400 mb-4">
+                    <div class="talent__name font-medium">{{talent.talent_name.stringValue}}</div>
+                    <div class="talent__desc text-xs text-center">{{talent.talent_desc.stringValue}}</div>
+                </a>
+            {% endfor %}
+
+        </div>
+    </div>
+</main>

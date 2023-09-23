@@ -1,0 +1,32 @@
+<nav>
+    <a href="/" class="md:absolute md:left-6"><img src="/assets/img/logo.png" alt="" height="57" width="102"></a>
+    <span id="navButton" class="w-[57px] h-[57px] flex md:hidden items-center justify-center">
+        <img src="/assets/img/burger.svg" alt="" height="13.33" width="21.33">
+    </span>
+    <div id="navMenu">
+        <div class="mb-8  block md:hidden">
+            <div class="btn-container">
+                <label class="switch btn-color-mode-switch">
+                    <input type="checkbox" name="currency_toggle_mobile" id="currency_toggle_mobile" value="1">
+                    <label for="currency_toggle_mobile" data-on="IDR" data-off="USD" class="btn-color-mode-switch-inner"></label>
+                </label>
+            </div>
+        </div>
+
+        <a href="/" data-menu="home" class="menu-item">Home</a>
+        <a href="/talents" data-menu="talents" class="menu-item">Talents</a>
+        <a href="/contact" data-menu="contact" class="menu-item">Contact</a>
+
+    </div>
+
+    <div class="md:absolute right-6 md:block hidden">
+
+        <div class="btn-container">
+            <label class="switch btn-color-mode-switch">
+                <input type="checkbox" name="currency_toggle" id="currency_toggle" value="1">
+                <label for="currency_toggle"  data-off="USD" data-on="IDR" class="btn-color-mode-switch-inner"></label>
+            </label>
+        </div>
+    </div>
+
+</nav>

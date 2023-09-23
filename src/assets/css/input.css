@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container{
+    max-width: 1280px;
+}
+.btn {
+    @apply rounded-full font-medium shadow-lg;
+    text-transform: none;
+}
+
+.btn-secondary {
+    @apply text-white;
+}
+
+
+
+.bg-glow {
+    background: radial-gradient(100% 100% at 50% 0%, #D7E4F0 0%, #FFFFFF 100%);
+}
+
+.bg-glow-half {
+    background: radial-gradient(50% 50% at 50% 0%, #D7E4F0 0%, #FFFFFF 100%);
+}
+
+body {
+    @apply  md:pt-0 pt-[77px];
+    scrollbar-width: none !important;
+
+}
+
+nav {
+    max-width: 100vw !important;
+    @apply bg-base-100 flex items-center justify-between md:justify-center md:relative min-h-[77px] px-6 z-[100] fixed top-0 left-0 w-full;
+}
+
+#navMenu {
+    @apply gap-4 md:flex md:bg-transparent fixed hidden bg-base-100 md:top-0 top-[77px] left-0 h-[100vh] w-[100vw] px-8 py-16 md:justify-center md:items-center md:relative md:h-auto md:w-auto md:p-0 z-[100];
+}
+
+nav .menu-item {
+    @apply text-[42px] md:text-[1rem] px-8 mb-4 md:mb-0 text-primary md:uppercase font-bold md:h-[77px] flex items-center md:justify-center md:px-4;
+}
+
+nav .menu-item.active {
+    @apply border-secondary text-secondary border-l-8 pl-6 md:border-0 md:border-b-4 md:pt-1 md:text-primary md:pl-4;
+}
+
+#heroSlider {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
+
+.slideshow {
+    width: 100vw !important;
+    min-width: 100vw !important;
+}
+
+.slide-item {
+    @apply py-4 px-2;
+}
+
+.slide-item>.content {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    @apply text-center flex items-center justify-center bg-white;
+    /*md:w-[640px] md:h-[360px] w-[320px] h-[180px]*/
+    width: 50vw;
+    aspect-ratio: 16/9;
+}
+
+.slick-dots {
+    @apply flex justify-center gap-4 mt-4;
+}
+
+.slick-dots li {
+    color: transparent;
+    @apply md:w-[8px] md:h-[8px] w-[4px] h-[4px] rounded-full bg-primary;
+    transition: all 0.3s ease-in-out;
+}
+
+.slick-dots li.slick-active {
+    @apply md:w-[48px] w-[24px] bg-secondary;
+}
+
+.slick-arrow {
+    color: transparent;
+    @apply absolute top-1/2 transform -translate-y-1/2 z-20 md:w-[100px] md:h-full h-0 w-0;
+}
+
+#heroSlider .slick-arrow {
+    @apply md:w-[400px];
+}
+
+.slick-arrow.slick-prev {
+    @apply left-0;
+}
+
+.slick-arrow.slick-next {
+    @apply right-0;
+}
+
+footer {
+    @apply bg-secondary text-white md:px-[84px] pt-16 pb-[34px] md:py-16 flex md:justify-between justify-center md:h-[300px] flex-col md:flex-row gap-4 md:gap-0;
+}
+
+#backToTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: relative;
+    width: 84px;
+    height: 84px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 1000px;
+
+}
+
+.currency-toggle{
+   @apply  bg-[#DFE5EA] rounded-full md:absolute right-6;
+}
+
+.currency-toggle>div{
+    @apply px-8 py-4 md:px-4 md:py-2 cursor-pointer font-bold text-primary md:text-base text-xl;
+}
+
+.currency-toggle>div.active{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 1000px;
+}
+
+.text-h2{
+    @apply text-xl font-bold;
+}
+
+.text-h1{
+    @apply text-[42px] font-bold;
+}
+
+.header-underline{
+    @apply p-4 border-b-[5px] border-secondary w-fit;
+}
+
+.slider-shadow{
+    /* carousel shadow */
+
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0%, rgba(25, 25, 25, 0.0901042) 9.9%, rgba(255, 255, 255, 0) 100%);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+
+}
+
+.tabs-pill{
+    @apply bg-black/5 rounded-full h-[48px];
+}
+
+.tabs-pill .tab{
+    @apply text-primary px-6 h-full;
+}
+
+.tabs-pill .tab-active{
+    @apply bg-white shadow-xl rounded-full font-medium;
+}
+
+
+div.btn-container{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+div.btn-container i{
+    display: inline-block;
+    position: relative;
+    top: -9px;
+}
+
+
+
+/* MM */
+.btn-container label {
+    @apply md:text-base text-xl font-bold;
+    color: #424242;
+    cursor: pointer;
+}
+
+.btn-color-mode-switch{
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner{
+    margin: 0px;
+    width: 140px;
+    height: 40px;
+    background: #E0E0E0;
+    border-radius: 26px;
+    /* overflow: hidden; */
+    position: relative;
+    transition: all 0.3s ease;
+    /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+    display: block;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before{
+    content: attr(data-on);
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    @apply flex items-center justify-center;
+    height: 40px;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after{
+    content: attr(data-off);
+    width: 70px;
+    height: 40px;
+    background: #fff;
+    border-radius: 26px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 5px 0px;
+    @apply flex items-center justify-center;
+}
+
+.btn-color-mode-switch > .alert{
+    display: none;
+    background: #FF9800;
+    border: none;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]{
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    /* background: #151515; */
+    /* color: #fff; */
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after{
+    content: attr(data-on);
+    left: 70px;
+    /* background: #3c3c3c; */
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before{
+    content: attr(data-off);
+    right: auto;
+    left: 20px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    /*background: #66BB6A; */
+    /*color: #fff;*/
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert{
+    display: block;
+}
