@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve",
+    "start": "concurrently \"npm run css:watch\" \"eleventy --serve\"",
     "build": "postcss src/assets/css/input.css -o src/assets/css/output.css && eleventy",
-    "css": "postcss src/assets/css/input.css -o src/assets/css/output.css"
+    "css": "postcss src/assets/css/input.css -o src/assets/css/output.css",
+    "css:watch": "postcss src/assets/css/input.css -o src/assets/css/output.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "concurrently": "^8.2.1",
     "daisyui": "^3.7.7"
   }
 }
