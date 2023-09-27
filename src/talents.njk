@@ -5,7 +5,7 @@ nav: talents
 ---
 <main class="bg-glow py-8">
     <div class="container mx-auto">
-        <h1 class="py-16 text-h1 text-center">
+        <h1 class="md:py-16 py-4 text-h1 text-center">
                     Talents
                 </h1>
         <div id="talentsFilter" class="hidden md:flex tabs tabs-pill w-fit mx-auto justify-center mb-8 ">
@@ -16,7 +16,17 @@ nav: talents
                 {% endif %}
             {% endfor %}
         </div>
-        <div id="talent-list" class="flex flex-wrap justify-center w-full gap-12 max-w-[1024px] md:mx-auto md:mb-[101px]">
+        <div class="block md:hidden px-8 py-8">
+            <select class="w-full rounded-full bg-white-400 text-primary text-center py-2 px-8 mb-8" name="talentsFilterMobile" id="talentsFilterMobile">
+                <option value="all" selected>All</option>
+                {% for tag in tags %}
+                    {% if tag.tag_member.arrayValue %}
+                        <option value="{{tag.tag_slug.stringValue}}">{{tag.tag_name.stringValue}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div id="talent-list" class="flex flex-wrap justify-center w-full gap-12 max-w-[1024px] md:mx-auto md:mb-[101px] mb-16">
             {% for talent in talents %}
                 <a href="/talent/{{ talent.talent_slug.stringValue }}" class="talent flex flex-col items-center pb-3 w-[120px] md:w-[160px]" data-tags="
             {% for tag in talent.talent_tags.arrayValue.values %}
