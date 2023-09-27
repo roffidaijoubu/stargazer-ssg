@@ -55,6 +55,16 @@
                     $('#talent-list .talent[data-tags*="'+filter+'"]').fadeIn(200);
                 }
             });
+            // interaction for select#talentsFilterMobile
+            $('#talentsFilterMobile').change(function(){
+                var filter = $(this).val();
+                if(filter == 'all'){
+                    $('#talent-list .talent').fadeIn(200);
+                }else{
+                    $('#talent-list .talent').hide();
+                    $('#talent-list .talent[data-tags*="'+filter+'"]').fadeIn(200);
+                }
+            });
         </script>
         <script>
             // when #goToTop is clicked, scroll to top
