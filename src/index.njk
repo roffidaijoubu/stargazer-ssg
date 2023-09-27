@@ -26,8 +26,8 @@ nav: home
     </div>
 
     <div class="flex gap-4 mt-8 items-center justify-center">
-        <a href="/talents.html" class="btn btn-secondary">Look for Talent</a>
-        <a href="/talents.html" class="btn bg-white">Learn More</a>
+        <a href="/talents" class="btn btn-secondary">Look for Talent</a>
+        <a href="/talents" class="btn bg-white">Learn More</a>
     </div>
 </section>
 
@@ -37,13 +37,13 @@ nav: home
         <div class="md:grid grid-cols-2 gap-4">
             {% for article in articles %}
                 {% if loop.index <= 4 %}
-                <div class="w-[260px] md:w-[240px] mr-4">
+                <a class="block cursor-pointer w-[260px] md:w-[240px] mr-4" href="/article/{{ article.article_slug.stringValue }}">
                     {# <img src="{{ article.article_thumbnail.stringValue }}" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]"> #}
                     <img src="/assets/img/dummy.png" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]">
                     <div class="flex md:flex-row flex-col items-start md:justify-between md:items-center">
                         <p class="font-bold">{{ article.article_title.stringValue }}</p>
                     </div>
-                </div>
+                </a>
                 {% endif %}
             {% endfor %}
             
@@ -69,7 +69,7 @@ nav: home
 
         </div>
         <div class="block w-full mt-4">
-            <a href="/talents.html" class="btn bg-white flex w-fit mx-auto">Contact Us</a>
+            <a href="/talents" class="btn bg-white flex w-fit mx-auto">Contact Us</a>
         </div>
     </div>
 </section>
