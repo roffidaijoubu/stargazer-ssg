@@ -2074,6 +2074,9 @@ html{
 .pt-8{
   padding-top: 2rem;
 }
+.pb-16{
+  padding-bottom: 4rem;
+}
 .text-left{
   text-align: left;
 }
