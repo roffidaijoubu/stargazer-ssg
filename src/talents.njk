@@ -17,14 +17,16 @@ nav: talents
             {% endfor %}
         </div>
         <div class="block md:hidden px-8 py-8">
-            <select class="w-full rounded-full bg-white-400 text-primary text-center py-2 px-8 mb-8" name="talentsFilterMobile" id="talentsFilterMobile">
-                <option value="all" selected>All</option>
-                {% for tag in tags %}
-                    {% if tag.tag_member.arrayValue %}
-                        <option value="{{tag.tag_slug.stringValue}}">{{tag.tag_name.stringValue}}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
+            <div class="custom-select-wrapper bg-white w-full rounded-full mb-8">
+                <select class="custom-select rounded-full  text-primary text-center py-2 px-8 w-full" name="talentsFilterMobile" id="talentsFilterMobile">
+                    <option value="all" selected>All</option>
+                    {% for tag in tags %}
+                        {% if tag.tag_member.arrayValue %}
+                            <option value="{{tag.tag_slug.stringValue}}">{{tag.tag_name.stringValue}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
         </div>
         <div id="talent-list" class="flex flex-wrap justify-center w-full gap-12 max-w-[1024px] md:mx-auto md:mb-[101px] mb-16">
             {% for talent in talents %}

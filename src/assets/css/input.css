@@ -4,6 +4,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove the default arrow */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent; /* You can set this to the desired background */
+}
+
+/* Set the wrapper styles and add the custom arrow */
+.custom-select-wrapper {
+    position: relative;
+    display: block;
+
+    /* Add the custom arrow as a background */
+    background-image: url('/assets/img/triangle.svg'); 
+    background-repeat: no-repeat;
+    background-position: right 24px center;
+    background-size: 12px 12px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Optional: Style the custom select when it's focused */
+.custom-select:focus + .custom-select-wrapper::after {
+    /* Apply desired styles for focus state */
+}
+
+
+
 .commsDetail{
     @apply py-4 pl-8 pr-4 flex flex-col md:max-w-[350px] ;
 }
