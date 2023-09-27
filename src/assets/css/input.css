@@ -4,7 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.commsDetail{
+    @apply py-4 pl-8 pr-4 flex flex-col md:max-w-[350px] ;
+}
 
+#goToTop{
+    @apply rounded-full w-[84px] h-[84px] absolute right-8 -top-[41px] bg-white flex items-center justify-center cursor-pointer;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+
+}
+
+.commsDetail:not(:first-child){
+    @apply border-l-8 border-secondary;
+}
 .container{
     max-width: 1280px;
 }

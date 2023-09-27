@@ -18,7 +18,7 @@ nav: talents
         </div>
         <div id="talent-list" class="flex flex-wrap justify-center w-full gap-12 max-w-[1024px] md:mx-auto md:mb-[101px]">
             {% for talent in talents %}
-                <a href="/talent-detail.html" class="talent flex flex-col items-center pb-3 w-[120px] md:w-[160px]" data-tags="
+                <a href="/talent/{{ talent.talent_slug.stringValue }}" class="talent flex flex-col items-center pb-3 w-[120px] md:w-[160px]" data-tags="
             {% for tag in talent.talent_tags.arrayValue.values %}
                 {{tag.referenceValue}}
             {% endfor %}
