@@ -7,7 +7,10 @@
         <link rel="stylesheet" href="/assets/css/output.css">
         <link rel="stylesheet" href="/assets/slick/slick.css">
         <title>
-            {% if title %}{{ title }} - {% endif %}Your Site Name</title>
+
+            {{title}} - STARGAZER
+
+        </title>
         <!-- Add any other <head> elements like stylesheets, favicon, etc. -->
     </head>
     <body data-page="{% if nav %}{{nav}}{% else %}{{ title |lower }}{% endif %}">
@@ -50,6 +53,12 @@
                     $('#talent-list .talent').hide();
                     $('#talent-list .talent[data-tags*="'+filter+'"]').fadeIn(200);
                 }
+            });
+        </script>
+        <script>
+            // when #goToTop is clicked, scroll to top
+            $('#goToTop').click(function(){
+                $('html, body').animate({scrollTop: 0}, 500);
             });
         </script>
     </body>

@@ -8,7 +8,10 @@ nav: home
     <div class="slideshow py-4 relative">
         {% for article in articles %}
             <div class="slide-item">
-                <a class="content"></a>
+                <a href="/article/{{article.article_slug.stringValue}}" class="content overflow-hidden">
+                    {# <img src="{{article.article_thumbnail.stringValue}}" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover"> #}
+                    <img src="/assets/img/dummy.png" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover">
+                </a>
             </div>
         {% endfor %}
 
@@ -30,51 +33,24 @@ nav: home
 
 <section class="md:flex py-8">
     <div id="contents" class="w-full px-8 md:mb-0 mb-8 md:px-16 md:max-w-[576px] md:ml-auto">
-        <h2 class="text-h2 mb-4">CONTENTS</h2>
-        <p>Available items from our talents, for you.</p>
-        <div id="slider-container" class="relative h-fit w-full pb-4">
-            <div class="slider-shadow"></div>
-            <div id="contents-slider" class="mt-6">
-                <div class="content-item w-[260px] md:w-[360px] mr-4">
-                    <img src="" alt="" class="content-item__img object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[250px] mb-[10px]">
+        <h2 class="text-h2 mb-4">ARTICLES</h2>
+        <div class="md:grid grid-cols-2 gap-4">
+            {% for article in articles %}
+                {% if loop.index <= 4 %}
+                <div class="w-[260px] md:w-[240px] mr-4">
+                    {# <img src="{{ article.article_thumbnail.stringValue }}" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]"> #}
+                    <img src="/assets/img/dummy.png" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]">
                     <div class="flex md:flex-row flex-col items-start md:justify-between md:items-center">
-                        <p class="font-bold content-item__name">VTuber Assets Pack #1</p>
-                        <p class="text-secondary content-item__price price price-USD">$50</p>
-                        <p class="text-secondary content-item__price price price-IDR">IDR 500.000</p>
+                        <p class="font-bold">{{ article.article_title.stringValue }}</p>
                     </div>
                 </div>
-                <div class="content-item w-[260px] md:w-[360px] mr-4">
-                    <img src="" alt="" class="content-item__img object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[250px] mb-[10px]">
-                    <div class="flex md:flex-row flex-col items-start md:justify-between md:items-center">
-                        <p class="font-bold content-item__name">VTuber Assets Pack #1</p>
-                        <p class="text-secondary content-item__price price price-USD">$50</p>
-                        <p class="text-secondary content-item__price price price-IDR">IDR 500.000</p>
-                    </div>
-                </div>
-                <div class="content-item w-[260px] md:w-[360px] mr-4">
-                    <img src="" alt="" class="content-item__img object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[250px] mb-[10px]">
-                    <div class="flex md:flex-row flex-col items-start md:justify-between md:items-center">
-                        <p class="font-bold content-item__name">VTuber Assets Pack #1</p>
-                        <p class="text-secondary content-item__price price price-USD">$50</p>
-                        <p class="text-secondary content-item__price price price-IDR">IDR 500.000</p>
-                    </div>
-                </div>
-
-            </div>
+                {% endif %}
+            {% endfor %}
+            
+           
         </div>
+        
 
-        <div class="block w-full mt-4">
-            <a href="/talents.html" class="btn bg-white flex w-fit mx-auto">Visit Our Shop <svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                    <path fill-rule="evenodd"
-                            d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"
-                            clip-rule="evenodd"/>
-                    <path fill-rule="evenodd"
-                            d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"
-                            clip-rule="evenodd"/>
-                </svg>
-            </a>
-        </div>
 
     </div>
     <div id="talents" class="w-full md:max-w-[576px] md:mr-auto md:px-16 px-8 md:mb-0 mb-8">

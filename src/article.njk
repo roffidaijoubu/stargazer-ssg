@@ -1,0 +1,22 @@
+---
+layout: default.njk
+pagination:
+    data: articles
+    size: 1
+    alias: article
+    addAllPagesToCollections: true
+---
+<section class="w-full h-[300px] flex items-center justify-center relative bg-black">
+    <img src="/assets/img/dummy.png" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50">
+    {# <img src="{{article.article_thumbnail.stringValue}}" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50"> #}
+    <h1 class="text-white text-h1 relative z-10">
+       {{ article.article_title.stringValue }} 
+    </h1>
+</section>
+<div class="bg-glow md:pt-16 md:mb-4">
+    <div class="container mx-auto">
+        <article class="prose px-8 pb-8 pt-4 md:px-36 md:pt-16 md:pb-16">
+            {{ article.article_content.stringValue | markdown | safe }}
+        </article>
+    </div>
+</div>
