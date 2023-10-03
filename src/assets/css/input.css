@@ -107,6 +107,8 @@
 body {
     @apply md:pt-0 pt-[77px];
     scrollbar-width: none !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
 
 }
 
