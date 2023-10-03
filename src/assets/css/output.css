@@ -1002,6 +1002,12 @@ html{
     --tw-text-opacity: 1;
     color: hsl(var(--pc) / var(--tw-text-opacity));
   }
+
+  .table tr.hover:hover,
+  .table tr.hover:nth-child(even):hover{
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--b2) / var(--tw-bg-opacity));
+  }
 }
 .btn{
   display: inline-flex;
@@ -1274,6 +1280,35 @@ html{
   color: var(--tab-color);
   padding-left: var(--tab-padding, 1rem);
   padding-right: var(--tab-padding, 1rem);
+}
+.table{
+  position: relative;
+  width: 100%;
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+.table :where(.table-pin-rows thead tr){
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+}
+.table :where(.table-pin-rows tfoot tr){
+  position: sticky;
+  bottom: 0px;
+  z-index: 1;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+}
+.table :where(.table-pin-cols tr th){
+  position: sticky;
+  left: 0px;
+  right: 0px;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 .btm-nav > * .label{
   font-size: 1rem;
@@ -1753,6 +1788,32 @@ html{
   --tw-text-opacity: 1;
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
+.table :where(th, td){
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  vertical-align: middle;
+}
+.table tr.active,
+  .table tr.active:nth-child(even),
+  .table-zebra tbody tr:nth-child(even){
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2) / var(--tw-bg-opacity));
+}
+.table :where(thead, tbody) :where(tr:not(:last-child)),
+    .table :where(thead, tbody) :where(tr:first-child:last-child){
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-bottom-color: hsl(var(--b2) / var(--tw-border-opacity));
+}
+.table :where(thead, tfoot){
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  color: hsl(var(--bc) / 0.6);
+}
 @keyframes toast-pop{
 
   0%{
@@ -1916,8 +1977,14 @@ html{
 .block{
   display: block;
 }
+.inline{
+  display: inline;
+}
 .flex{
   display: flex;
+}
+.table{
+  display: table;
 }
 .contents{
   display: contents;
@@ -1995,6 +2062,12 @@ html{
 }
 .max-w-\[300px\]{
   max-width: 300px;
+}
+.max-w-full{
+  max-width: 100%;
+}
+.max-w-none{
+  max-width: none;
 }
 .flex-grow{
   flex-grow: 1;
@@ -2170,6 +2243,9 @@ html{
 .font-medium{
   font-weight: 500;
 }
+.italic{
+  font-style: italic;
+}
 .text-\[\#17172E\]{
   --tw-text-opacity: 1;
   color: rgb(23 23 46 / var(--tw-text-opacity));
@@ -2194,6 +2270,9 @@ html{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.underline{
+  text-decoration-line: underline;
+}
 .opacity-50{
   opacity: 0.5;
 }
@@ -2206,12 +2285,67 @@ html{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.prose{
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px){
+
+  .prose{
+    margin-bottom: 8rem;
+  }
+}
+.prose a{
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+
+.prose h1{
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.prose h2{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.prose h5,
+.prose h6{
+  font-weight: 700;
+}
+
+/* change the color of list indicator in prose to red */
+.prose li::marker,
+.prose th{
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+
+.prose img {
+    filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.25));
+    height: auto;
+}
+
+@media (min-width: 768px){
+
+  .prose img{
+    float: right;
+    margin-left: 4rem;
+    max-width: 320px;
+  }
+}
+
+
+
 /* Remove the default arrow */
 .custom-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: transparent; /* You can set this to the desired background */
+    background: transparent;
+    /* You can set this to the desired background */
 }
 
 /* Set the wrapper styles and add the custom arrow */
@@ -2220,7 +2354,7 @@ html{
     display: block;
 
     /* Add the custom arrow as a background */
-    background-image: url('/assets/img/triangle.svg'); 
+    background-image: url('/assets/img/triangle.svg');
     background-repeat: no-repeat;
     background-position: right 24px center;
     background-size: 12px 12px;
@@ -2229,7 +2363,7 @@ html{
 }
 
 /* Optional: Style the custom select when it's focused */
-.custom-select:focus + .custom-select-wrapper::after {
+.custom-select:focus+.custom-select-wrapper::after {
     /* Apply desired styles for focus state */
 }
 
@@ -2274,9 +2408,11 @@ html{
   --tw-border-opacity: 1;
   border-color: hsl(var(--s) / var(--tw-border-opacity));
 }
-.container{
+
+.container {
     max-width: 1280px;
 }
+
 .btn{
   border-radius: 9999px;
   font-weight: 500;
@@ -2606,7 +2742,7 @@ footer{
   }
 }
 
-.currency-toggle>div.active{
+.currency-toggle>div.active {
     background: #FFFFFF;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
     border-radius: 1000px;
@@ -2632,7 +2768,7 @@ footer{
   padding: 1rem;
 }
 
-.slider-shadow{
+.slider-shadow {
     /* carousel shadow */
 
     position: absolute;
@@ -2676,13 +2812,13 @@ footer{
 }
 
 
-div.btn-container{
+div.btn-container {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
 }
 
-div.btn-container i{
+div.btn-container i {
     display: inline-block;
     position: relative;
     top: -9px;
@@ -2708,13 +2844,13 @@ div.btn-container i{
     cursor: pointer;
 }
 
-.btn-color-mode-switch{
+.btn-color-mode-switch {
     display: inline-block;
     margin: 0px;
     position: relative;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner{
+.btn-color-mode-switch>label.btn-color-mode-switch-inner {
     margin: 0px;
     width: 140px;
     height: 40px;
@@ -2727,7 +2863,7 @@ div.btn-container i{
     display: block;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner:before{
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
     content: attr(data-on);
     position: absolute;
     top: 0px;
@@ -2738,7 +2874,7 @@ div.btn-container i{
     height: 40px;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner:after{
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
     content: attr(data-off);
     width: 70px;
     height: 40px;
@@ -2756,14 +2892,14 @@ div.btn-container i{
     justify-content: center;
 }
 
-.btn-color-mode-switch > .alert{
+.btn-color-mode-switch>.alert {
     display: none;
     background: #FF9800;
     border: none;
     color: #fff;
 }
 
-.btn-color-mode-switch input[type="checkbox"]{
+.btn-color-mode-switch input[type="checkbox"] {
     cursor: pointer;
     width: 50px;
     height: 25px;
@@ -2774,29 +2910,29 @@ div.btn-container i{
     margin: 0px;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
     /* background: #151515; */
     /* color: #fff; */
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after{
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
     content: attr(data-on);
     left: 70px;
     /* background: #3c3c3c; */
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before{
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
     content: attr(data-off);
     right: auto;
     left: 20px;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
     /*background: #66BB6A; */
     /*color: #fff;*/
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert{
+.btn-color-mode-switch input[type="checkbox"]:checked~.alert {
     display: block;
 }
 

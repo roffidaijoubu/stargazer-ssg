@@ -6,6 +6,66 @@ pagination:
     size: 1
     alias: talent
     addAllPagesToCollections: true
+dummy: |
+    Sure, here's a basic dummy article with various markdown elements. Note that Markdown doesn't have native tags for every HTML element (like `<span>` or underline), but I've demonstrated standard markdown and included some HTML where Markdown might be lacking. Here's an example that you can build upon:
+
+    # H1 Header: Introduction to Dummy Article
+
+    This is a paragraph under the H1 tag. Markdown is a lightweight and easy-to-use syntax for styling all forms of writing on the GitHub platform. Basic writing and formatting syntax can involve headers, paragraphs, list items, and more.
+
+    ## H2 Header: Sub-section Header
+
+    ### H3 Header: Sub-sub-section Header
+
+    ![Placeholder Image](https://placehold.co/800)
+    Paragraphs are simply one or more consecutive lines of text separated by one or more blank lines. This is a **bold text** and this is an _italic text_. For underline you need to use HTML like <u>underlined text</u>.
+
+    Here's an inline image:
+
+    
+
+    #### H4 Header: Another Level Down
+
+    In this section, we'll introduce a table with some example data:
+
+    | Header 1 | Header 2 | Header 3 |
+    |----------|----------|----------|
+    | Row 1, Col 1 | Row 1, Col 2 | Row 1, Col 3 |
+    | Row 2, Col 1 | Row 2, Col 2 | Row 2, Col 3 |
+    | Row 3, Col 1 | Row 3, Col 2 | Row 3, Col 3 |
+
+    ##### H5 Header: Going Even Deeper
+
+    Text can also be ~~strikethrough~~ using markdown. 
+
+    ###### H6 Header: The Deepest We Can Go
+
+    And here is a blockquote:
+
+    > This is a blockquote. It will be offset from the rest of the text, providing a visual cue that this text is distinct from the surrounding context.
+
+    Now, let's use a code snippet:
+
+    ```javascript
+    console.log("This is a code snippet in JavaScript!");
+    ```
+
+    ### Lists and Links
+
+    Let's check out some lists and a link:
+
+    - Unordered List Item 1
+    - Unordered List Item 2
+        - Nested Item 2.1
+        - Nested Item 2.2
+
+    1. Ordered List Item 1
+    2. Ordered List Item 2
+    3. [Link to Placehold.co](https://placehold.co)
+
+    Final paragraph text to conclude this example. Feel free to mix, match, and adjust markdown and HTML to fit your needs. Markdown can be quite powerful and versatile when used effectively.
+
+    This template contains various header levels, paragraphs, bold and italic text, underlined text (using HTML), inline images, tables, blockquotes, code snippets, lists, and links. Adjust as per your need and add more content to fit your requirements. Remember that for rendering HTML and certain markdown features, the platform where you're pasting this needs to support it (like GitHub, Jupyter Notebooks, etc.).
 ---
 <div class="bg-glow md:pt-16 md:mb-4">
     <div class="container mx-auto">
@@ -48,8 +108,20 @@ pagination:
         </section>
 
 
-        <article class="prose px-8 pb-8 pt-4 md:px-36 md:pt-12 md:pb-12">
-            {{ talent.talent_content.stringValue | markdown | safe }}
+        <article class="prose px-8 pb-8 pt-4 md:px-36 md:pt-12 md:pb-12 max-w-none w-full">
+            {# {{ talent.talent_content.stringValue | markdown | safe }} #}
+            {{ dummy | markdown | safe }}
         </article>
     </div>
 </div>
+
+
+<script>
+    document.querySelectorAll('.prose img').forEach(function(img) {
+        const wrapper = document.createElement('a');
+        wrapper.href = img.src;
+        wrapper.setAttribute('data-lightbox', 'image-set');
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+    });
+</script>
