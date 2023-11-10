@@ -72,7 +72,7 @@ dummy: |
         <section class="md:px-36 md:pt-16 md:pb-8 pt-8 pb-4">
             <div class="flex flex-col md:flex-row items-center md:px-0 px-8">
                 <div class="relative p-4 md:w-[240px]">
-                    <img src="" alt="" class="talent__img h-[120px] md:h-[160px] w-[120px] md:w-[160px] rounded-full shadow-lg bg-slate-400 mb-4">
+                    <img src="{{ talent.talent_img.stringValue }}" alt="" class="talent__img h-[120px] md:h-[160px] w-[120px] md:w-[160px] rounded-full shadow-lg bg-slate-400 mb-4">
                 </div>
                 <div class="mb-8 md:self-auto self-start">
                     <a class="block cursor-pointer" href="/talents" >Talents ></a>
@@ -80,7 +80,7 @@ dummy: |
                     <span class="block mt-2">{{ talent.talent_desc.stringValue }}</span>
                 </div>
             </div>
-            <div class="hidden md:flex" id="commsList">
+            <div class="flex flex-col md:flex-row px-8 md:px-0 gap-4 md:gap-0" id="commsList">
                 {% for comm in talent.commissions %}
                     <div class="commsDetail">
                         <div class="text-h2 mb-4">
@@ -109,8 +109,8 @@ dummy: |
 
 
         <article class="prose px-8 pb-8 pt-4 md:px-36 md:pt-12 md:pb-12 max-w-none w-full">
-            {# {{ talent.talent_content.stringValue | markdown | safe }} #}
-            {{ dummy | markdown | safe }}
+            {{ talent.talent_content.stringValue | markdown | safe }}
+            {# {{ dummy | markdown | safe }} #}
         </article>
     </div>
 </div>
