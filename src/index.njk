@@ -9,8 +9,8 @@ nav: home
         {% for article in articles %}
             <div class="slide-item">
                 <a href="/article/{{article.article_slug.stringValue}}" class="content overflow-hidden">
-                    {# <img src="{{article.article_thumbnail.stringValue}}" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover"> #}
-                    <img src="/assets/img/dummy.png" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover">
+                    <img src="{{article.article_thumbnail.stringValue}}" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover">
+                    {# <img src="/assets/img/dummy.png" alt="{{article.article_title.stringValue}}" class="h-full w-full object-cover"> #}
                 </a>
             </div>
         {% endfor %}
@@ -38,8 +38,8 @@ nav: home
             {% for article in articles %}
                 {% if loop.index <= 4 %}
                 <a class="block cursor-pointer w-[260px] md:w-[240px] mr-4" href="/article/{{ article.article_slug.stringValue }}">
-                    {# <img src="{{ article.article_thumbnail.stringValue }}" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]"> #}
-                    <img src="/assets/img/dummy.png" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]">
+                    <img src="{{ article.article_thumbnail.stringValue }}" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]">
+                    {# <img src="/assets/img/dummy.png" alt="" class="object-cover bg-gray-200 border-0 w-full h-[160px] md:h-[135px] mb-[10px]"> #}
                     <div class="flex md:flex-row flex-col items-start md:justify-between md:items-center">
                         <p class="font-bold">{{ article.article_title.stringValue }}</p>
                     </div>

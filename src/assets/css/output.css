@@ -2369,14 +2369,16 @@ html{
 
 
 
+
 .commsDetail{
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
   padding-right: 1rem;
 }
+
 
 
 
@@ -2384,6 +2386,8 @@ html{
 
   .commsDetail{
     max-width: 350px;
+    padding-top: 1rem;
+    padding-left: 2rem;
   }
 }
 
@@ -2404,9 +2408,18 @@ html{
 }
 
 .commsDetail:not(:first-child){
-  border-left-width: 8px;
+  border-left-width: 0px;
+  border-top-width: 8px;
   --tw-border-opacity: 1;
   border-color: hsl(var(--s) / var(--tw-border-opacity));
+}
+
+@media (min-width: 768px){
+
+  .commsDetail:not(:first-child){
+    border-left-width: 8px;
+    border-top-width: 0px;
+  }
 }
 
 .container {

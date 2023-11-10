@@ -67,8 +67,8 @@ dummy: |
     This template contains various header levels, paragraphs, bold and italic text, underlined text (using HTML), inline images, tables, blockquotes, code snippets, lists, and links. Adjust as per your need and add more content to fit your requirements. Remember that for rendering HTML and certain markdown features, the platform where you're pasting this needs to support it (like GitHub, Jupyter Notebooks, etc.).
 ---
 <section class="w-full h-[300px] flex items-center justify-center relative bg-black">
-    <img src="/assets/img/dummy.png" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50">
-    {# <img src="{{article.article_thumbnail.stringValue}}" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50"> #}
+    {# <img src="/assets/img/dummy.png" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50"> #}
+    <img src="{{article.article_thumbnail.stringValue}}" alt="" class="h-full w-full absolute z-0 top-0 left-0 object-cover origin-center opacity-50">
     <h1 class="text-white text-h1 relative z-10 text-center">
        {{ article.article_title.stringValue }} 
     </h1>
@@ -76,8 +76,8 @@ dummy: |
 <div class="bg-glow md:pt-16 md:mb-4">
     <div class="container mx-auto">
         <article class="prose px-8 pb-16 pt-8 md:px-36 md:pt-16 md:pb-16 w-full max-w-full">
-            {# {{ article.article_content.stringValue | markdown | safe }} #}
-            {{ dummy | markdown | safe }}
+            {{ article.article_content.stringValue | markdown | safe }}
+            {# {{ dummy | markdown | safe }} #}
         </article>
     </div>
 </div>

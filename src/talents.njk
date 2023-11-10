@@ -35,7 +35,7 @@ nav: talents
                 {{tag.referenceValue}}
             {% endfor %}
             ">
-                    <img src="" alt="" class="talent__img h-[120px] md:h-[160px] w-[120px] md:w-[160px] rounded-full shadow-lg bg-slate-400 mb-4">
+                    <img src="{{ talent.talent_img.stringValue }}" alt="" class="talent__img h-[120px] md:h-[160px] w-[120px] md:w-[160px] rounded-full shadow-lg bg-slate-400 mb-4">
                     <div class="talent__name font-medium">{{talent.talent_name.stringValue}}</div>
                     <div class="talent__desc text-xs text-center">{{talent.talent_desc.stringValue}}</div>
                 </a>
